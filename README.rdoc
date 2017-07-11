@@ -3,3 +3,5 @@
 Quotter was developed mostly as a way for me to show my skills, practice some new things, and just have a little fun.  I have a whole list of functionality that I want to add and will track user stories on Trello if you want to check them out:  https://trello.com/b/HmUZIJXQ/quotter
 
 Have a suggestion for more functionality?  Feel free to add it as an issue and I'll see what I can do. 
+
+NOTE:  While Devise is being used to manage users, I have not yet set up mailing options for confirmations, resets, etc.
