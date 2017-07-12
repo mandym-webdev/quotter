@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  resources :quotes
   root 'pages#index'
 
   get '/user/:id' => 'pages#profile'
