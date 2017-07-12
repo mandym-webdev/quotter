@@ -13,9 +13,18 @@
   <div class="col-sm-6">
     <div class="panel panel-default">
       <div class="panel-body">
-        <p>List of all quotes by that user</p>
+        <div><%= render "partials/new_quote" %></div>
       </div>
-    </div>    
+    </div>
+    <% for @quote in @quotes %>    
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p><%= @quote.quote %></p>
+          <p><%= @quote.source%></p>
+          <p><%= @quote.user%></p>
+        </div>
+      </div> 
+    <% end %>   
   </div>
   <div class="col-sm-3">
     <div class="panel panel-default">
@@ -29,3 +38,6 @@
 
 <h1>Pages#profile</h1>
 <p>Find me in app/views/pages/profile.html.erb</p>
+
+
+          
