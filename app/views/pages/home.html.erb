@@ -13,10 +13,10 @@
         <div class="panel-body">
           <p><%= @quote.quote %></p>
           <p><%= @quote.source%></p>
-          <p><%= @quote.user%></p>
+          <p><%= link_to @quote.user.username, profile_path(@quote.user.username) %></p>
         </div>
       </div> 
-    <% end %>     
+    <% end %>      
   </div>
   <div class="col-sm-3 ">
     <div class="panel panel-default">
@@ -27,7 +27,7 @@
   </div>
 </div>
 
-
+ 
 
 
 <h1>Pages#home</h1>

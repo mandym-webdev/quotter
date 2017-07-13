@@ -13,7 +13,8 @@ class PagesController < ApplicationController
 
     @quotes = Quote.all.where("user_id = ?", User.find_by_username(params[:id]).id)
 
-
+    @user = User.find_by_username(params[:id])
+    
   end
 
   # directs to all submitted quotes at /discover
