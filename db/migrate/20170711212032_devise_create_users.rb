@@ -5,7 +5,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       t.string :username,           null: false, default: ""
-      t.string :favorite,           null: false, default: ""
+      t.string :favorite_quote,     null: false, default: ""
+      t.string :favorite_quote_source, null: false, default: ""
       t.string :about
 
 

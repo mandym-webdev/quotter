@@ -1,12 +1,15 @@
 <div class="jumbotron">
-  <p><%= @username %>'s Favorite Quote</p>
+  <p><%= @username %>'s Favorite Quote:</p>
+  <p><%= @user.favorite_quote %></p>
+  <p><%= @user.favorite_quote_source %></p>
 </div>
 
 <div class="row">
   <div class="col-sm-3">
     <div class="panel panel-default">
       <div class="panel-body">
-        <p>About</p>
+        <p>About <%= @username %></p>
+        <p><%= @user.about %></p>
       </div>
     </div>
   </div>
@@ -21,7 +24,7 @@
         <div class="panel-body">
           <p><%= @quote.quote %></p>
           <p><%= @quote.source%></p>
-          <p><%= @quote.user%></p>
+          <p><%= link_to @quote.user.username, profile_path(@quote.user.username) %></p>
         </div>
       </div> 
     <% end %>   

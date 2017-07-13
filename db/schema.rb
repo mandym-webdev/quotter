@@ -31,7 +31,8 @@ ActiveRecord::Schema.define(version: 20170711230353) do
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "username",               default: "", null: false
-    t.string   "favorite",               default: "", null: false
+    t.string   "favorite_quote",         default: "", null: false
+    t.string   "favorite_quote_source",  default: "", null: false
     t.string   "about"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :quotes
   root 'pages#index'
 
-  get '/user/:id' => 'pages#profile'
+  get '/user/:id', to: 'pages#profile', as: 'profile'
   get '/discover' => 'pages#discover'
   get '/home' => 'pages#home'
 
