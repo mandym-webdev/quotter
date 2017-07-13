@@ -2,6 +2,7 @@
   <p><%= @username %>'s Favorite Quote:</p>
   <p><%= @user.favorite_quote %></p>
   <p><%= @user.favorite_quote_source %></p>
+  <%= @avatar %>
 </div>
 
 <div class="row">
@@ -9,6 +10,7 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <p>About <%= @username %></p>
+        <p><%= @avatar %></p>
         <p><%= @user.about %></p>
       </div>
     </div>

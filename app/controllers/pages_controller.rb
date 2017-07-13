@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
     if (User.find_by_username(params[:id]))
       @username = params[:id]
+      @avatar = @username.first.upcase
     else 
       redirect_to root_path, :notice=> "User not found!" 
     end
