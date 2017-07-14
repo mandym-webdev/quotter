@@ -9,9 +9,11 @@
   <div class="col-sm-3">
     <div class="panel panel-default">
       <div class="panel-body">
+        <p><%= @avatar %> <%= render '/partials/follow_button', :user => User.find_by_username(params[:id]) %></p>
         <p>About <%= @username %></p>
-        <p><%= @avatar %></p>
         <p><%= @user.about %></p>
+        <p>Followers: <%= @user.followers.count %></p>
+        <p>Following: <%= @user.following.count %></p>
       </div>
     </div>
   </div>
