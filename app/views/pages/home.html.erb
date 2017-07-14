@@ -11,9 +11,7 @@
     <% for @quote in @quotes %>    
       <div class="panel panel-default">
         <div class="panel-body">
-          <p><%= @quote.quote %></p>
-          <p><%= @quote.source%></p>
-          <p><%= link_to @quote.user.username, profile_path(@quote.user.username) %></p>
+          <%= render "partials/display_quote" %>
         </div>
       </div> 
     <% end %>      

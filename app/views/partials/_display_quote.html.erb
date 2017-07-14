@@ -1,0 +1,10 @@
+<p><%= @quote.quote %></p>
+<p><%= @quote.source%></p>
+<p><%= link_to @quote.user.username, profile_path(@quote.user.username) %></p>
+<p>Submitted <%= time_ago_in_words(@quote.created_at) %> ago. </p>
+<%= link_to like_quote_path(@quote), method: :put do %>
+  Like
+  <%= @quote.get_upvotes.size %>
+<% end %>
+
+
