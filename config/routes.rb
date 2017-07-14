@@ -2,11 +2,18 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :quotes
+  resources :relationships
   root 'pages#index'
 
   get '/user/:id', to: 'pages#profile', as: 'profile'
   get '/discover' => 'pages#discover'
   get '/home' => 'pages#home'
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
