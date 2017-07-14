@@ -16,6 +16,18 @@ class QuotesController < ApplicationController
     end
   end
 
+  def upvote 
+    @quote = Quote.find(params[:id])
+    @quote.upvote_by current_user
+    redirect_to :back
+  end  
+
+  def downvote
+    @quote = Quote.find(params[:id])
+    @quote.downvote_by current_user
+    redirect_to :back
+  end
+
   private
 
   def quote_params
@@ -24,22 +36,3 @@ class QuotesController < ApplicationController
 
 end
 
-
-    def create
-        @post = Post.new(post_params)
-        @post.user_id = current_user.id # assign the post to the user who created it.
-        respond_to do |f|
-            if (@post.save) 
-                f.html { redirect_to "", notice: "Post created!" }
-            else
-                f.html { redirect_to "", notice: "Error: Post Not Saved." }
-            end
-        end
-    end
-
-
-    private
-    def post_params # allows certain data to be passed via form.
-        params.require(:post).permit(:user_id, :content)
-        
-    end

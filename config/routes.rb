@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :quotes
+  resources :quotes do
+    member do
+      put "like", to: "quotes#upvote"
+      put "dislike", to: "quotes#downvote"
+    end
+  end
   resources :relationships
   root 'pages#index'
 
@@ -14,6 +19,9 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+
+
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
