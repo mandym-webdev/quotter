@@ -1,23 +1,42 @@
-<!-- https://v4-alpha.getbootstrap.com/components/card/#card-columns -->
 
+<% if !user_signed_in? %>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <p>List of most active quotters</p>
-      </div>
+<div class="container">
+
+  <div class="welcome">
+    <h2>Welcome to Quotter!</h2>
+
+    <p>Quotter is a Twitter clone with a twist primarily built to practice my skills, play with gems, and learn new things.  So, while it isn't super active, it is fun, so why not join us and start quotting?</p>
+
+    <div>
+      <span class="btn btn-default"><%= link_to 'Sign Up', new_user_registration_path, :class => "btn"%></span>
+      <span> or </span>
+      <span class="btn btn-default"><%= link_to 'Sign In', new_user_session_path, :class => "btn" %></span>
     </div>
   </div>
-  <div class="col-sm-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <p>List of most popular quotes</p>
-      </div>
-    </div>    
+
+  
+
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+      <h3>Most Recent Quotes:</h3>
+      <% for @quote in @quotes %>    
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= render "partials/display_quote" %>
+          </div>
+        </div> 
+      <% end %>       
+    </div>
   </div>
+
+
 </div>
 
+<% else %>
 
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+  <script>document.location = "/home"</script>
+  
+<% end %>
+
+
