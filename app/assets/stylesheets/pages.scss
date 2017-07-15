@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*display quote styles*/
+
+.quote {
+  font-style: italic;
+}
+
+.source {
+  font-weight: bold;
+}
+
+.display-stats{
+  color: grey;
+
+}
+
 /*index page styles*/
 
 .welcome {
@@ -21,9 +36,17 @@
   }
 }
   
+/*profile page styles*/
 
+.favorite {
 
+  padding: 25px;
 
+  .quote {
+    font-size: 1.25em;
+  }
+
+}
 
 
 

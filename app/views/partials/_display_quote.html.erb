@@ -1,10 +1,14 @@
-<p><%= @quote.quote %></p>
-<p><%= @quote.source%></p>
-<p><%= link_to @quote.user.username, profile_path(@quote.user.username) %></p>
-<p>Submitted <%= time_ago_in_words(@quote.created_at) %> ago. </p>
-<%= link_to like_quote_path(@quote), method: :put do %>
-  Like
-  <%= @quote.get_upvotes.size %>
-<% end %>
+<div class="display">
+  <%= render "partials/quote_content" %>
+</div>
+<hr/>
+<div class="display-stats">
+  <p>Submitted by <%= link_to @quote.user.username, profile_path(@quote.user.username) %> <%= time_ago_in_words(@quote.created_at) %> ago. </p>
+  <%= link_to like_quote_path(@quote), remote: true, id: "like_#{@quote.id}", class: "glyphicon glyphicon-heart-empty", method: :put do %>
+  <% end %>
+  <span><%= @quote.get_upvotes.size %> likes</span>
+</div>
+
+
 
 
