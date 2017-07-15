@@ -30,6 +30,7 @@ class PagesController < ApplicationController
 
   # directs to 'welcome to quotter' page at /index
   def index
-    @quotes = Quote.all
+    @quotes = Quote.last(4)
+    # @users = User.find_by_username(params[:id]).last(4)
   end
 end

@@ -1,3 +1,29 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*index page styles*/
+
+.welcome {
+
+  background-color: #cedbef;
+  width: 75%; 
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+
+  h2, div{
+    text-align: center;
+  }
+
+  p {
+    padding: 15px 5px;
+  }
+}
+  
+
+
+
+
+
+
