@@ -1,28 +1,35 @@
 <div class="jumbotron">
-  <p><%= @username %>'s Favorite Quote:</p>
-  <p><%= @user.favorite_quote %></p>
-  <p><%= @user.favorite_quote_source %></p>
-  <%= @avatar %>
+  <h2><%= @username %>'s Favorite Quote:</h2>
+  <div class="favorite">
+    <p class="quote"><%= @user.favorite_quote %></p>
+    <p class="source">~ <%= @user.favorite_quote_source %></p>
+  </div>
+
+
 </div>
 
 <div class="row">
   <div class="col-sm-3">
     <div class="panel panel-default">
       <div class="panel-body">
-        <p><%= @avatar %> <%= render '/partials/follow_button', :user => User.find_by_username(params[:id]) %></p>
-        <p>About <%= @username %></p>
+        <h4>About <%= @username %>:</h4>
         <p><%= @user.about %></p>
-        <p>Followers: <%= @user.followers.count %></p>
-        <p>Following: <%= @user.following.count %></p>
+        <p><%= render '/partials/follow_button', :user => User.find_by_username(params[:id]) %></p>
+        <span>Followers: <%= @user.followers.count %> | </span>
+        <span>Following: <%= @user.following.count %></span>
       </div>
     </div>
   </div>
+
+  
   <div class="col-sm-6">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div><%= render "partials/new_quote" %></div>
+    <% if current_user == @user %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+            <div><%= render "partials/new_quote" %></div>
+        </div>
       </div>
-    </div>
+    <% end %>
     <% for @quote in @quotes %>    
       <div class="panel panel-default">
         <div class="panel-body">
@@ -39,10 +46,3 @@
     </div>
   </div>
 </div>
-
-
-<h1>Pages#profile</h1>
-<p>Find me in app/views/pages/profile.html.erb</p>
-
-
-          

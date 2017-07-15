@@ -9,9 +9,9 @@ class QuotesController < ApplicationController
     @quote.user_id = current_user.id
     respond_to do |f|
       if (@quote.save)
-        f.html { redirect_to '', notice: "Great Quote!" }
+        f.html { redirect_to :back, notice: "Great Quote!" }
       else
-        f.html { redirect_to '', notice: "Oops! Something went wrong!" }
+        f.html { redirect_to :back, notice: "Oops! Something went wrong!" }
       end
     end
   end
@@ -21,12 +21,6 @@ class QuotesController < ApplicationController
     @quote.upvote_by current_user
     redirect_to :back
   end  
-
-  def downvote
-    @quote = Quote.find(params[:id])
-    @quote.downvote_by current_user
-    redirect_to :back
-  end
 
   private
 
