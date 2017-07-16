@@ -1,0 +1,8 @@
+<h3>Meet Our Newest Users!</h3>
+<hr />
+<% @users.each do |user| %>
+  <h4><%= link_to user.username, profile_path(user.username) %></h4>
+  <p><%= user.about %></p>
+  <hr/>
+<% end %>
+

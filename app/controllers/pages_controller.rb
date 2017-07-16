@@ -15,22 +15,26 @@ class PagesController < ApplicationController
     @quotes = Quote.all.where("user_id = ?", User.find_by_username(params[:id]).id)
 
     @user = User.find_by_username(params[:id])
+
+    @users = User.order('created_at DESC').limit(4)
         
   end
 
   # directs to all submitted quotes at /discover
   def discover
     @quotes = Quote.all
+    @users = User.order('created_at DESC').limit(4)
   end
 
   # directs to list of quotes submitted by people user is following at /
   def home
     @quotes = Quote.all
+    @users = User.order('created_at DESC').limit(4)
   end
 
   # directs to 'welcome to quotter' page at /index
   def index
-    @quotes = Quote.last(4)
-    # @users = User.find_by_username(params[:id]).last(4)
+    @quotes = Quote.order('created_at DESC').limit(4)
+    
   end
 end
