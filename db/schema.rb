@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714215101) do
+ActiveRecord::Schema.define(version: 20170716215903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,18 @@ ActiveRecord::Schema.define(version: 20170714215101) do
     t.text     "quote"
     t.text     "source"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "cached_votes_total", default: 0
+    t.integer  "cached_votes_score", default: 0
+    t.integer  "cached_votes_up",    default: 0
+    t.integer  "cached_votes_down",  default: 0
   end
 
+  add_index "quotes", ["cached_votes_down"], name: "index_quotes_on_cached_votes_down", using: :btree
+  add_index "quotes", ["cached_votes_score"], name: "index_quotes_on_cached_votes_score", using: :btree
+  add_index "quotes", ["cached_votes_total"], name: "index_quotes_on_cached_votes_total", using: :btree
+  add_index "quotes", ["cached_votes_up"], name: "index_quotes_on_cached_votes_up", using: :btree
   add_index "quotes", ["user_id", "created_at"], name: "index_quotes_on_user_id_and_created_at", using: :btree
   add_index "quotes", ["user_id"], name: "index_quotes_on_user_id", using: :btree
 
