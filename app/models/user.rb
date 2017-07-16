@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable
 
   validates :username, uniqueness: true
-  
+
+  validates_format_of :username, :with => /\A[a-zA-Z\d ]\z/i, :message => "can only contain letters and numbers."  
   has_many :quotes, dependent: :destroy
 
   acts_as_voter
@@ -29,3 +30,5 @@ class User < ActiveRecord::Base
   end
 
 end
+
+
