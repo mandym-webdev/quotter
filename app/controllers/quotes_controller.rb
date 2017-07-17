@@ -7,11 +7,13 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(quote_params)
     @quote.user_id = current_user.id
-    respond_to do |f|
+    respond_to do |format|
       if (@quote.save)
-        f.html { redirect_to :back, notice: "Great Quote!" }
+        format.html { redirect_to :back, notice: "Great Quote!" }
+        format.js
       else
-        f.html { redirect_to :back, notice: "Oops! Something went wrong!" }
+        format.html { redirect_to :back, notice: "Oops! Something went wrong!" }
+        format.js
       end
     end
   end

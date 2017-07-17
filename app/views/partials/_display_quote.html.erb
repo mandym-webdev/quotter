@@ -1,14 +1,21 @@
-<div class="display">
-  <%= render "partials/quote_content" %>
-</div>
-<hr/>
-<div class="display-stats">
-  <p>Submitted by <%= link_to @quote.user.username, profile_path(@quote.user.username) %> <%= time_ago_in_words(@quote.created_at) %> ago. </p>
-  <%= link_to like_quote_path(@quote), remote: true, id: "like_#{@quote.id}", class: "glyphicon glyphicon-heart-empty", method: :put do %>
-  <% end %>
-  <span><%= @quote.get_upvotes.size %> | </span>
-  <span><%= likers_of @quote %></span>
-</div>
+<div class="panel panel-default" >
+  <div class="panel-body" >
+    <div >
+      <p class="quote"><%= @quote.quote %></p>
+      <p class="source">~ <%= @quote.source%></p>
+      <hr/>
+      <div class="display-stats">
+        <p>Submitted by <%= link_to @quote.user.username, profile_path(@quote.user.username) %> <%= time_ago_in_words(@quote.created_at) %> ago. </p>
+        <%= link_to like_quote_path(@quote), remote: true, id: "like_#{@quote.id}", class: "glyphicon glyphicon-heart-empty", method: :put do %>
+        <% end %>
+        <span><%= @quote.get_upvotes.size %> | </span>
+        <span><%= likers_of @quote %></span>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
 
 
 

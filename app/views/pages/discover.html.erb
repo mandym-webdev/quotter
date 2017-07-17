@@ -12,11 +12,7 @@
       <p>Not following</p>
     <% else %>
     <% for @quote in @quotes %>    
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= render "partials/display_quote" %>
-        </div>
-      </div> 
+      <%= render "partials/display_quote" %>
     <% end %> 
     <% end %>      
   </div>
