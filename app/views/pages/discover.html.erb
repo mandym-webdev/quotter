@@ -8,13 +8,17 @@
     </div>
   </div>
   <div class="col-sm-6 ">
+    <% if @quotes.count == 0 %>
+      <p>Not following</p>
+    <% else %>
     <% for @quote in @quotes %>    
       <div class="panel panel-default">
         <div class="panel-body">
           <%= render "partials/display_quote" %>
         </div>
       </div> 
-    <% end %>       
+    <% end %> 
+    <% end %>      
   </div>
   <div class="col-sm-3 ">
     <div class="panel panel-default">

@@ -28,8 +28,13 @@ class PagesController < ApplicationController
 
   # directs to list of quotes submitted by people user is following at /
   def home
-    @quotes = Quote.all
+    @followed_quotes = Quote.of_followed_users(current_user.following)
+
+    @quote = Quote.last
+
     @users = User.order('created_at DESC').limit(4)
+
+    @newQuote = Quote.new
   end
 
   # directs to 'welcome to quotter' page at /index
