@@ -19,11 +19,7 @@
       </center>
     <% else %>
       <% for @quote in @followed_quotes %>    
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <%= render "partials/display_quote" %>
-          </div>
-        </div> 
+        <%= render "partials/display_quote" %>
       <% end %>    
     <% end %>     
   </div>
