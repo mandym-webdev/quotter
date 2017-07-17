@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: true
 
-  # validates_format_of :username, :with => /\A[a-zA-Z\d ]\z/i, :message => "can only contain letters and numbers."  
+  validates_format_of :username, :with => /\A[a-z0-9]+[-a-z0-9]*[a-z0-9]\z/i, on: :create, :message => "can only contain letters and numbers."  
   has_many :quotes, dependent: :destroy
 
   acts_as_voter
