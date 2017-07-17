@@ -8,13 +8,24 @@
     </div>
   </div>
   <div class="col-sm-6 ">
-    <% for @quote in @quotes %>    
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <%= render "partials/display_quote" %>
-        </div>
-      </div> 
-    <% end %>      
+    <% if @followed_quotes.count == 0 %>
+      <center>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3>You aren't following anyone yet!</h3>
+            <h4>Use the links to the left or the Discover page to find some great Quotters to follow!</h4>
+          </div>
+        </div> 
+      </center>
+    <% else %>
+      <% for @quote in @followed_quotes %>    
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= render "partials/display_quote" %>
+          </div>
+        </div> 
+      <% end %>    
+    <% end %>     
   </div>
   <div class="col-sm-3 ">
     <div class="panel panel-default">

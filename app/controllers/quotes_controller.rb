@@ -22,6 +22,10 @@ class QuotesController < ApplicationController
     redirect_to :back
   end  
 
+  def random_quote
+    @random_quote = Quote.where(id: Quote.pluck(:id).sample(5))
+  end
+
   private
 
   def quote_params
